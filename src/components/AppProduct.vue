@@ -2,7 +2,7 @@
   <li class="product-list__item">
     <article class="product" itemscope itemtype="http://schema.org/Product">
       <figure class="product__image-wrapper">
-        <img class="product__image" src="@/assets/img/activity_image.jpeg" alt="Product" itemprop="image"/>
+        <img class="product__image" :src="image" alt="Product" itemprop="image"/>
         <button class="product__wishlist-button button button--round button--wishlist">
           <svg class="icon" width="20px" height="20px" viewBox="0 6 20 20" version="1.1"
                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -13,8 +13,8 @@
         </button>
       </figure>
       <div class="product__details">
-        <h1 class="product__title" itemprop="brand">Product Title</h1>
-        <p class="product__subtitle" itemprop="description">Product Description</p>
+        <h1 class="product__title" itemprop="brand">{{title}}</h1>
+        <p class="product__subtitle" itemprop="description">{{description}}</p>
         <div class="product__price" itemscope itemtype="http://schema.org/Offer">
           <span class="product__price--strike">£210</span><span class="product__price--discounted"
                                                                 itemprop="price">£210</span>
@@ -27,7 +27,26 @@
 
 <script>
   export default {
-    name: "AppProduct"
+    name: "AppProduct",
+    props: {
+      image: {
+        type: String,
+        default: '@/assets/img/activity_image.jpeg'
+      },
+      title: {
+        type: String,
+        default: 'NO Title'
+      },
+      description: {
+        type: String,
+        default: 'NO Description'
+      }
+    },
+    data() {
+      return {
+
+      }
+    }
   }
 </script>
 

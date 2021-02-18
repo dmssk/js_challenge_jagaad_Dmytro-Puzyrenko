@@ -14,6 +14,7 @@
   "author": "Dmytro Puzyrenko <myaczt@gmail.com>",
   "dependencies": {
     "@babel/polyfill": "~7.2",
+    "axios": "^0.21.1",
     "vue": "~2.6",
     "vue-router": "~3.0"
   },
