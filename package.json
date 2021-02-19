@@ -2,21 +2,18 @@
   "name": "Frontend-VueJS-Coding-Challenge",
   "version": "1.0.0",
   "description": "Frontend-VueJS-Coding-Challenge",
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
-    "staging": "cross-env NODE_ENV=staging webpack",
-    "build": "cross-env NODE_ENV=production webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dmssk/Frontend-VueJS-Coding-Challenge"
-  },
   "author": "Dmytro Puzyrenko <myaczt@gmail.com>",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
+    "staging": "cross-env NODE_ENV=staging webpack"
+  },
   "dependencies": {
     "@babel/polyfill": "~7.2",
     "axios": "^0.21.1",
     "vue": "~2.6",
-    "vue-router": "~3.0"
+    "vue-router": "~3.0",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@babel/core": "~7.2",
@@ -26,6 +23,7 @@
     "@babel/plugin-syntax-dynamic-import": "~7.2",
     "@babel/plugin-syntax-import-meta": "~7.2",
     "@babel/preset-env": "~7.3",
+    "@vue/cli-plugin-vuex": "~4.5.0",
     "babel-eslint": "~10.0",
     "babel-loader": "~8.0",
     "compression-webpack-plugin": "~2.0",
@@ -58,5 +56,9 @@
     "webpack-dev-server": "~3.1",
     "webpack-hot-middleware": "~2.24",
     "webpack-merge": "~4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmssk/Frontend-VueJS-Coding-Challenge"
   }
 }

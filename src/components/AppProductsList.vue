@@ -9,6 +9,8 @@
           :image="p.cover_image_url"
           :title="p.title"
           :description="p.description"
+          :price="p.retail_price"
+          :id="p.uuid"
         />
       </ul>
 
@@ -21,6 +23,7 @@
 import AppPagination from "@/components/AppPagination"
 import AppProduct from "@/components/AppProduct"
 import { getProducts } from "@/api"
+import { mapMutations } from 'vuex'
 
 export default {
   name: "AppProductsList",
@@ -34,10 +37,11 @@ export default {
     }
   },
   methods: {
-
+    ...mapMutations(['setProducts'])
   },
   async mounted () {
     this.products = await getProducts(6, 0)
+    this.setProducts(this.products)
   }
 }
 </script>
