@@ -40,11 +40,32 @@
         </div>
       </div>
       <div class="header-bag__item header-bag__wishlist-count">
-        <svg class="icon" width="20px" height="20px" viewBox="0 6 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>Wishlist Icon</title>
-          <polygon id="Wishlist-Icon" stroke="none" fill-rule="evenodd" points="12.3598869 13.2675869 20 13.2675869 13.8200565 17.7545318 16.1782804 25.0221187 9.99833694 20.5318477 3.81839348 25.0221187 6.17994346 17.7545318 0 13.2675869 7.63678696 13.2675869 9.99833694 6"></polygon>
-        </svg>
-        <span class="bag__item-counter">5</span>
+        <button
+          @click="toggleWishlistModal"
+        >
+          <svg class="icon" width="20px" height="20px" viewBox="0 6 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>Wishlist Icon</title>
+            <polygon id="Wishlist-Icon" stroke="none" fill-rule="evenodd" points="12.3598869 13.2675869 20 13.2675869 13.8200565 17.7545318 16.1782804 25.0221187 9.99833694 20.5318477 3.81839348 25.0221187 6.17994346 17.7545318 0 13.2675869 7.63678696 13.2675869 9.99833694 6"></polygon>
+          </svg>
+        </button>
+        <span class="bag__item-counter">{{ getWishlistCount }}</span>
+        <div
+          v-if="wishlistModal"
+          class="bag__modal"
+        >
+          <ul class="bag__modal-list">
+            <li
+              v-for="product in getWishlist"
+              :key="product.uuid"
+              class="bag__modal-item"
+            >
+              <img :src="product.cover_image_url" alt="">
+              <span>{{ product.title }} <br> <b>{{ product.retail_price.formatted_value }}</b></span>
+              <button @click="deleteProductFromWishlist(product.uuid)">X</button>
+            </li>
+            <span v-if="!getWishlist.length">No products on wishlist</span>
+          </ul>
+        </div>
       </div>
     </aside>
   </header>
@@ -57,16 +78,26 @@ export default {
   name: "AppHeader",
   data () {
     return {
-      bagModal: false
+      bagModal: false,
+      wishlistModal: false
     }
   },
   computed: {
-    ...mapGetters(['getTotalPrice', 'getBagCount', 'getBag'])
+    ...mapGetters([
+        'getTotalPrice',
+        'getBagCount',
+        'getBag',
+        'getWishlistCount',
+        'getWishlist'
+      ])
   },
   methods: {
-    ...mapMutations(['deleteProduct']),
+    ...mapMutations(['deleteProduct', 'deleteProductFromWishlist']),
     toggleBagModal () {
       this.bagModal = !this.bagModal
+    },
+    toggleWishlistModal () {
+      this.wishlistModal = !this.wishlistModal
     },
   }
 }
@@ -117,6 +148,7 @@ export default {
 }
 
 .header-bag__wishlist-count {
+  position: relative;
   margin-left: 10px;
 }
 

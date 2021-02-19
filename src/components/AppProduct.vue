@@ -3,8 +3,11 @@
     <article class="product" itemscope itemtype="http://schema.org/Product">
       <figure class="product__image-wrapper">
         <img class="product__image" :src="imageSrc" alt="Product" itemprop="image"/>
-        <button class="product__wishlist-button button button--round button--wishlist">
-          <svg class="icon" width="20px" height="20px" viewBox="0 6 20 20" version="1.1"
+        <button
+          @click="addToWishlist"
+          class="product__wishlist-button button button--round button--wishlist"
+        >
+          <svg :class="{'wished': isProductInWishlist}" class="icon" width="20px" height="20px" viewBox="0 6 20 20" version="1.1"
                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <title>Wishlist Icon</title>
             <polygon id="Wishlist-Icon" stroke="none" fill-rule="evenodd"
@@ -64,9 +67,13 @@ export default {
       }
     },
     computed: {
-      ...mapGetters(['getBag']),
+      ...mapGetters(['getBag', 'getWishlist']),
       isProductInBag () {
         const product = this.getBag.find(p => p.uuid === this.id)
+        return !!product
+      },
+      isProductInWishlist () {
+        const product = this.getWishlist.find(p => p.uuid === this.id)
         return !!product
       },
       imageSrc () {
@@ -74,15 +81,18 @@ export default {
       }
     },
     methods: {
-      ...mapMutations(['addProduct']),
+      ...mapMutations(['addProduct', 'addProductToWishlist']),
       addToCard () {
         this.addProduct(this.id)
+      },
+      addToWishlist () {
+        this.addProductToWishlist(this.id)
       }
     }
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .product-list__item {
   padding: 10px;
@@ -188,6 +198,9 @@ export default {
   position: absolute;
   top: 10px;
   right: 10px;
+  .wished {
+    fill: #444A59;
+  }
 }
 
 .product__add-to-cart {

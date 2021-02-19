@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const initialState = {
   products: null,
   bag: [],
-  wishlist: null,
+  wishlist: [],
   totalPrice: 0
 }
 
@@ -24,10 +24,20 @@ export default new Vuex.Store({
         state.totalPrice += +product.retail_price.value.toFixed(2)
       }
     },
+    addProductToWishlist (state, productId) {
+      const product = state.products.find(p => p.uuid === productId)
+      const isInWishlist = state.wishlist.find(p => p.uuid === productId)
+      if (product && !isInWishlist) {
+        state.wishlist.push(product)
+      }
+    },
     deleteProduct (state, productId) {
       const product = state.products.find(p => p.uuid === productId)
       state.totalPrice -= +product.retail_price.value.toFixed(2)
       state.bag = state.bag.filter(p => p.uuid !== productId)
+    },
+    deleteProductFromWishlist (state, productId) {
+      state.wishlist = state.wishlist.filter(p => p.uuid !== productId)
     }
   },
   actions: {
@@ -41,6 +51,12 @@ export default new Vuex.Store({
     },
     getBagCount (state) {
       return state.bag.length
+    },
+    getWishlist (state) {
+      return state.wishlist
+    },
+    getWishlistCount (state) {
+      return state.wishlist.length
     }
   },
   modules: {
