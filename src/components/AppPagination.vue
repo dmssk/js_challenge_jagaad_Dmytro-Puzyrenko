@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: "AppPagination",
+  name: 'AppPagination',
   props: {
     pagination: {
       type: Object,
@@ -76,7 +76,7 @@ export default {
         offset: 0
       }),
       required: true
-    },
+    }
   },
   data () {
     return {
@@ -110,9 +110,9 @@ export default {
       this.pagination.total += page - this.pagination.current
       this.pagination.current = page
       this.$emit('pageChange', {
-          page,
-          offset: this.pagination.offset
-        })
+        page,
+        offset: this.pagination.offset
+      })
     }
   }
 }

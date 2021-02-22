@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import AppPagination from "@/components/AppPagination"
-import AppProduct from "@/components/AppProduct"
-import { getProducts } from "@/api"
+import AppPagination from '@/components/AppPagination'
+import AppProduct from '@/components/AppProduct'
+import { getProducts } from '@/api'
 import { mapMutations } from 'vuex'
 
 export default {
-  name: "AppProductsList",
+  name: 'AppProductsList',
   components: {
     AppPagination,
     AppProduct

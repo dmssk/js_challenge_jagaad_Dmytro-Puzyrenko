@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function getProducts(limit = 6, offset = 0) {
+export async function getProducts (limit = 6, offset = 0) {
   const headers = {
     'accept-language': 'it',
     'content-type': 'application/json',

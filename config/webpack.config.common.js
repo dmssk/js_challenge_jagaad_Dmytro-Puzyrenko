@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlPlugin = require('html-webpack-plugin');
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const helpers = require('./helpers');
-const isDev = process.env.NODE_ENV === 'development';
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlPlugin = require('html-webpack-plugin')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const helpers = require('./helpers')
+const isDev = process.env.NODE_ENV === 'development'
 
 const webpackConfig = {
   entry: {
     polyfill: '@babel/polyfill',
-    main: helpers.root('src', 'main'),
+    main: helpers.root('src', 'main')
   },
   resolve: {
     extensions: ['.js', '.vue'],
@@ -34,7 +34,7 @@ const webpackConfig = {
         test: /\.css$/,
         use: [
           isDev ? 'vue-style-loader' : MiniCSSExtractPlugin.loader,
-          {loader: 'css-loader', options: {sourceMap: isDev}},
+          {loader: 'css-loader', options: {sourceMap: isDev}}
         ]
       },
       {
@@ -71,7 +71,7 @@ const webpackConfig = {
           {
             loader: 'file-loader',
             options: {
-              esModule: false,
+              esModule: false
             }
           }
         ]
@@ -82,6 +82,6 @@ const webpackConfig = {
     new VueLoaderPlugin(),
     new HtmlPlugin({template: 'index.html', chunksSortMode: 'dependency'})
   ]
-};
+}
 
-module.exports = webpackConfig;
+module.exports = webpackConfig

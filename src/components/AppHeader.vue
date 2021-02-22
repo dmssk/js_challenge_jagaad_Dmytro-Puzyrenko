@@ -52,7 +52,7 @@ import AppWishlistModal from '@/components/modal/AppWishlistModal'
 import vClickOutside from 'v-click-outside'
 
 export default {
-  name: "AppHeader",
+  name: 'AppHeader',
   directives: {
     clickOutside: vClickOutside.directive
   },
@@ -68,10 +68,10 @@ export default {
   },
   computed: {
     ...mapGetters([
-        'getTotalPrice',
-        'getBagCount',
-        'getWishlistCount',
-      ])
+      'getTotalPrice',
+      'getBagCount',
+      'getWishlistCount'
+    ])
   },
   methods: {
     toggleModal (type) {

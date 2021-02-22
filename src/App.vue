@@ -7,18 +7,18 @@
 </template>
 
 <script>
-  import AppHeader from "@/components/AppHeader"
-  import AppProductsList from "@/components/AppProductsList"
-  import AppFooter from "@/components/AppFooter"
+import AppHeader from '@/components/AppHeader'
+import AppProductsList from '@/components/AppProductsList'
+import AppFooter from '@/components/AppFooter'
 
-  export default {
-    name: 'AppMain',
-    components: {
-      AppHeader,
-      AppProductsList,
-      AppFooter
-    }
-  };
+export default {
+  name: 'AppMain',
+  components: {
+    AppHeader,
+    AppProductsList,
+    AppFooter
+  }
+}
 </script>
 
 <style lang="scss" src="@/assets/styles/main.scss"></style>

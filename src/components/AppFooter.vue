@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: "AppFooter"
-  }
+export default {
+  name: 'AppFooter'
+}
 </script>
 
 <style scoped lang="scss" src="@/assets/styles/footer.scss"></style>

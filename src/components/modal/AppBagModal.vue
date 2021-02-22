@@ -41,7 +41,7 @@ export default {
     ])
   },
   methods: {
-    ...mapMutations(['DELETE_PRODUCT_FROM_CART']),
+    ...mapMutations(['DELETE_PRODUCT_FROM_CART'])
   }
 }
 </script>

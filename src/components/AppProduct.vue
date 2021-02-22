@@ -38,58 +38,58 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 export default {
-    name: "AppProduct",
-    props: {
-      id: {
-        type: String,
-        required: true
-      },
-      image: {
-        type: String,
-        required: true
-      },
-      title: {
-        type: String,
-        required: true
-      },
-      description: {
-        type: String,
-        required: true
-      },
-      price: {
-        type: Object,
-        required: true
-      }
+  name: 'AppProduct',
+  props: {
+    id: {
+      type: String,
+      required: true
     },
-    data() {
-      return {
+    image: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    price: {
+      type: Object,
+      required: true
+    }
+  },
+  data () {
+    return {
 
-      }
+    }
+  },
+  computed: {
+    ...mapGetters(['getBag', 'getWishlist']),
+    isProductInBag () {
+      const product = this.getBag.find(p => p.uuid === this.id)
+      return !!product
     },
-    computed: {
-      ...mapGetters(['getBag', 'getWishlist']),
-      isProductInBag () {
-        const product = this.getBag.find(p => p.uuid === this.id)
-        return !!product
-      },
-      isProductInWishlist () {
-        const product = this.getWishlist.find(p => p.uuid === this.id)
-        return !!product
-      },
-      imageSrc () {
-        return this.image + '?q=60&fit=crop&h=220px'
-      }
+    isProductInWishlist () {
+      const product = this.getWishlist.find(p => p.uuid === this.id)
+      return !!product
     },
-    methods: {
-      ...mapMutations(['ADD_PRODUCT_TO_BAG', 'ADD_PRODUCT_TO_WISHLIST']),
-      addToCard () {
-        this.ADD_PRODUCT_TO_BAG(this.id)
-      },
-      addToWishlist () {
-        this.ADD_PRODUCT_TO_WISHLIST(this.id)
-      }
+    imageSrc () {
+      return this.image + '?q=60&fit=crop&h=220px'
+    }
+  },
+  methods: {
+    ...mapMutations(['ADD_PRODUCT_TO_BAG', 'ADD_PRODUCT_TO_WISHLIST']),
+    addToCard () {
+      this.ADD_PRODUCT_TO_BAG(this.id)
+    },
+    addToWishlist () {
+      this.ADD_PRODUCT_TO_WISHLIST(this.id)
     }
   }
+}
 </script>
 
 <style scoped lang="scss" src="@/assets/styles/product.scss"></style>

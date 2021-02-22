@@ -33,7 +33,7 @@ export default {
     ])
   },
   methods: {
-    ...mapMutations(['DELETE_PRODUCT_FROM_WISHLIST']),
+    ...mapMutations(['DELETE_PRODUCT_FROM_WISHLIST'])
   }
 }
 </script>
