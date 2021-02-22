@@ -4,7 +4,7 @@
   top: 100%;
   right: 0;
   z-index: 2;
-  box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
 
   &-list {
     width: 400px;
@@ -37,6 +37,7 @@
       max-width: 100px;
       object-fit: cover;
     }
+
     span {
       display: block;
       padding: 0 15px;
@@ -48,5 +49,11 @@
     border-top: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .bag__modal {
+
   }
 }

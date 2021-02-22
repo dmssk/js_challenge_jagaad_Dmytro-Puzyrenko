@@ -68,3 +68,13 @@
   color: #ffffff;
   background-color: #358ED7;
 }
+
+@media screen and (max-width: 650px) {
+  .header-bag__wishlist-count,
+  .header-bag__count {
+    position: static;
+  }
+  .header {
+    position: relative;
+  }
+}
