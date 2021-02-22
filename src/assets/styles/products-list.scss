@@ -1,0 +1,33 @@
+
+.product-page {
+  position: relative;
+}
+
+.product-list {
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  margin: 0 -10px;
+}
+.loader {
+  width: 200px;
+  height: 200px;
+  color: inherit;
+  vertical-align: middle;
+  pointer-events: none;
+  margin: 30vh auto;
+
+  border: .2em solid #358ED7;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: 1s loader linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

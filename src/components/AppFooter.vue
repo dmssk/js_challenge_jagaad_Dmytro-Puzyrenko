@@ -10,9 +10,4 @@
   }
 </script>
 
-<style scoped>
-.footer__sidenote {
-  font-family: 'Lato-Bold', sans-serif;
-  letter-spacing: 1.37px;
-}
-</style>
+<style scoped lang="scss" src="@/assets/styles/footer.scss"></style>
