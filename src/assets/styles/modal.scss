@@ -1,22 +1,33 @@
 .bag__modal {
   position: absolute;
-  width: 400px;
-  max-width: 100vw;
-  max-height: 300px;
-  overflow: auto;
   background: #fff;
   top: 100%;
   right: 0;
   z-index: 2;
   box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
-  padding: 10px 15px;
+
+  &-list {
+    width: 400px;
+    max-width: 100vw;
+    max-height: 300px;
+    overflow: auto;
+  }
 
   &-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 0;
+    padding: 20px 15px;
     border-bottom: 1px solid #ccc;
+
+    &:hover {
+      background: #eee;
+    }
+
+    button {
+      background: none;
+      padding: 0;
+    }
 
     &:last-child {
       border-bottom: none;
@@ -24,10 +35,18 @@
 
     img {
       max-width: 100px;
+      object-fit: cover;
     }
     span {
       display: block;
       padding: 0 15px;
     }
+  }
+
+  &-total {
+    padding: 30px 15px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
   }
 }
