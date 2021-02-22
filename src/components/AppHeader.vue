@@ -33,7 +33,7 @@
             >
               <img :src="product.cover_image_url" alt="">
               <span>{{ product.title }} <br> <b>{{ product.retail_price.formatted_value }}</b></span>
-              <button @click="deleteProduct(product.uuid)">X</button>
+              <button @click="DELETE_PRODUCT_FROM_CART(product.uuid)">X</button>
             </li>
             <span v-if="!getBag.length">No products on bag</span>
           </ul>
@@ -61,7 +61,7 @@
             >
               <img :src="product.cover_image_url" alt="">
               <span>{{ product.title }} <br> <b>{{ product.retail_price.formatted_value }}</b></span>
-              <button @click="deleteProductFromWishlist(product.uuid)">X</button>
+              <button @click="DELETE_PRODUCT_FROM_WISHLIST(product.uuid)">X</button>
             </li>
             <span v-if="!getWishlist.length">No products on wishlist</span>
           </ul>
@@ -92,7 +92,7 @@ export default {
       ])
   },
   methods: {
-    ...mapMutations(['deleteProduct', 'deleteProductFromWishlist']),
+    ...mapMutations(['DELETE_PRODUCT_FROM_CART', 'DELETE_PRODUCT_FROM_WISHLIST']),
     toggleBagModal () {
       this.bagModal = !this.bagModal
     },

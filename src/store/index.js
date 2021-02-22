@@ -4,19 +4,28 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const initialState = {
-  products: null,
+  products: [],
   bag: [],
   wishlist: [],
-  totalPrice: 0
+  totalPrice: 0,
+  loadedPages: new Set()
 }
 
 export default new Vuex.Store({
   state: initialState,
   mutations: {
-    setProducts (state, products) {
-      state.products = products
+    SET_PRODUCTS (state, productsData) {
+      if (!state.loadedPages.has(productsData.page)) {
+
+        if (state.products.length) {
+          state.products = [...state.products, ...productsData.products]
+        } else {
+          state.products.push(...productsData.products)
+        }
+      }
+      state.loadedPages.add(productsData.page)
     },
-    addProduct (state, productId) {
+    ADD_PRODUCT_TO_BAG (state, productId) {
       const product = state.products.find(p => p.uuid === productId)
       const isInBag = state.bag.find(p => p.uuid === productId)
       if (product && !isInBag) {
@@ -24,19 +33,19 @@ export default new Vuex.Store({
         state.totalPrice += +product.retail_price.value.toFixed(2)
       }
     },
-    addProductToWishlist (state, productId) {
+    ADD_PRODUCT_TO_WISHLIST (state, productId) {
       const product = state.products.find(p => p.uuid === productId)
       const isInWishlist = state.wishlist.find(p => p.uuid === productId)
       if (product && !isInWishlist) {
         state.wishlist.push(product)
       }
     },
-    deleteProduct (state, productId) {
+    DELETE_PRODUCT_FROM_CART (state, productId) {
       const product = state.products.find(p => p.uuid === productId)
       state.totalPrice -= +product.retail_price.value.toFixed(2)
       state.bag = state.bag.filter(p => p.uuid !== productId)
     },
-    deleteProductFromWishlist (state, productId) {
+    DELETE_PRODUCT_FROM_WISHLIST (state, productId) {
       state.wishlist = state.wishlist.filter(p => p.uuid !== productId)
     }
   },

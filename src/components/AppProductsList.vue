@@ -1,7 +1,11 @@
 <template>
   <main class="product-page">
     <div class="container">
-      <ul class="product-list">
+      <div v-if="loading" class="loader"></div>
+      <ul
+        v-else
+        class="product-list"
+      >
 
         <app-product
           v-for="p in products"
@@ -14,7 +18,10 @@
         />
       </ul>
 
-      <app-pagination></app-pagination>
+      <app-pagination
+        :pagination="pagination"
+        @pageChange="onPageChange"
+      />
     </div>
   </main>
 </template>
@@ -33,20 +40,48 @@ export default {
   },
   data () {
     return {
-      products: null
+      products: null,
+      pagination: {
+        current: 1,
+        perPage: 1,
+        total: 10,
+        visible: 3,
+        offset: 0
+      },
+      loading: false
     }
   },
   methods: {
-    ...mapMutations(['setProducts'])
+    ...mapMutations(['SET_PRODUCTS']),
+    onPageChange (data) {
+      this.getProductsHandler(6, data.offset, data.page)
+    },
+    async getProductsHandler (limit = 6, offset = 0, page = 1) {
+      try {
+        this.loading = true
+        this.products = await getProducts(limit, offset)
+        this.SET_PRODUCTS({
+          products: this.products,
+          page
+        })
+      } catch (e) {
+        console.error(e)
+      } finally {
+        this.loading = false
+      }
+    }
   },
-  async mounted () {
-    this.products = await getProducts(6, 0)
-    this.setProducts(this.products)
+  mounted () {
+    this.getProductsHandler()
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+.product-page {
+  position: relative;
+}
 
 .product-list {
   display: flex;
@@ -54,5 +89,28 @@ export default {
   flex-flow: row wrap;
   margin: 0 -10px;
 }
+.loader {
+  width: 200px;
+  height: 200px;
+  color: inherit;
+  vertical-align: middle;
+  pointer-events: none;
+  margin: 30vh auto;
+
+  border: .2em solid #358ED7;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: 1s loader linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 </style>

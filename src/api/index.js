@@ -12,7 +12,6 @@ export async function getProducts(limit = 6, offset = 0) {
       `https://api.musement.com/api/v3/venues/164/activities?limit=${limit}&offset=${offset}`,
       {headers}
     )
-    console.log(data)
     return data
   } catch (e) {
     console.error(e)

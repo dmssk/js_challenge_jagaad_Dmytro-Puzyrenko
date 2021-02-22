@@ -81,12 +81,12 @@ export default {
       }
     },
     methods: {
-      ...mapMutations(['addProduct', 'addProductToWishlist']),
+      ...mapMutations(['ADD_PRODUCT_TO_BAG', 'ADD_PRODUCT_TO_WISHLIST']),
       addToCard () {
-        this.addProduct(this.id)
+        this.ADD_PRODUCT_TO_BAG(this.id)
       },
       addToWishlist () {
-        this.addProductToWishlist(this.id)
+        this.ADD_PRODUCT_TO_WISHLIST(this.id)
       }
     }
   }
