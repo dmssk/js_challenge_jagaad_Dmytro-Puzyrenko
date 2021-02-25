@@ -1,7 +1,7 @@
 {
-  "name": "Frontend-VueJS-Coding-Challenge",
+  "name": "js_challenge_jagaad_Dmytro-Puzyrenko",
   "version": "1.0.0",
-  "description": "Frontend-VueJS-Coding-Challenge",
+  "description": "js_challenge_jagaad_Dmytro-Puzyrenko",
   "author": "Dmytro Puzyrenko <myaczt@gmail.com>",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
@@ -64,6 +64,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dmssk/Frontend-VueJS-Coding-Challenge"
+    "url": "https://github.com/dmssk/js_challenge_jagaad_Dmytro-Puzyrenko"
   }
 }
