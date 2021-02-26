@@ -6,7 +6,7 @@
         <div class="header-bag__price">
           {{ getTotalPrice | formatCurrency('€')}}
         </div>
-        <button @click="toggleModal('bagModal')">
+        <button class="header-bag__button" @click="toggleModal('bagModal')">
           <svg class="icon" width="17px" height="18px" viewBox="36 8 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <title>Bag Icon</title>
@@ -25,6 +25,7 @@
       </div>
       <div class="header-bag__item header-bag__wishlist-count">
         <button
+          class="header-bag__wishlist-button"
           @click="toggleModal('wishlistModal')"
         >
           <svg class="icon" width="20px" height="20px" viewBox="0 6 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

@@ -6,6 +6,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "test:unit": "vue-cli-service test:unit",
+    "test:e2e:run": "cyperess run",
+    "test:e2e:open": "cyperess open",
     "lint": "eslint --fix --ext .js,.jsx .",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "staging": "cross-env NODE_ENV=staging webpack"
@@ -27,6 +29,7 @@
     "@babel/plugin-syntax-dynamic-import": "~7.2",
     "@babel/plugin-syntax-import-meta": "~7.2",
     "@babel/preset-env": "~7.3",
+    "@vue/cli-plugin-e2e-cypress": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/test-utils": "^1.0.3",
