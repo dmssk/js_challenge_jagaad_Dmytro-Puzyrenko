@@ -5,7 +5,7 @@
         <a
           @click.prevent="changePage(pagination.current - 1)"
           href="#"
-          class="pagination__link"
+          class="pagination__link arrow-prev"
         >
           <svg class="icon" width="8px" height="10px" viewBox="18 18 8 10" version="1.1"
                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -48,7 +48,7 @@
         <a
           @click.prevent="changePage(pagination.current + 1)"
           href="#"
-          class="pagination__link"
+          class="pagination__link arrow-next"
         >
           <svg class="icon" width="8px" height="10px" viewBox="18 18 8 10" version="1.1"
                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
