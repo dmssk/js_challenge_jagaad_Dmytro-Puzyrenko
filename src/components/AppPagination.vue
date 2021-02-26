@@ -105,7 +105,6 @@ export default {
     },
     changePage (page) {
       if (page === 0) { return }
-      page = +page
       this.countOffset(page)
       this.pagination.total += page - this.pagination.current
       this.pagination.current = page

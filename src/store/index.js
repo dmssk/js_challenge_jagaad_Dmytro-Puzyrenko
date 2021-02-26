@@ -16,11 +16,7 @@ export default new Vuex.Store({
   mutations: {
     SET_PRODUCTS (state, productsData) {
       if (!state.loadedPages.has(productsData.page)) {
-        if (state.products.length) {
-          state.products = [...state.products, ...productsData.products]
-        } else {
-          state.products.push(...productsData.products)
-        }
+        state.products.push(...productsData.products)
       }
       state.loadedPages.add(productsData.page)
     },

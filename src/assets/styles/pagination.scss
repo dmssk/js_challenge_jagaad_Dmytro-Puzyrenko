@@ -1,3 +1,5 @@
+@import "variables";
+
 .pagination {
   height: 45px;
   margin: 30px auto;
@@ -9,6 +11,7 @@
     flex-direction: row;
     align-items: center;
   }
+
   &__item {
     height: 100%;
     width: 45px;
@@ -17,13 +20,14 @@
     letter-spacing: 1.39px;
     text-align: center;
   }
+
   &__link {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #444A59;
+    color: $main-color;
 
     &:hover {
       text-decoration: underline;
@@ -35,7 +39,7 @@
 
     .icon {
       width: 8px;
-      fill: #444A59;
+      fill: $main-color;
     }
   }
 }

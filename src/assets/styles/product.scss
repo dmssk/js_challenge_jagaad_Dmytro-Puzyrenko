@@ -1,3 +1,5 @@
+@import "variables";
+
 .product-list__item {
   padding: 10px;
   flex: 1 0 33.3333%;
@@ -9,7 +11,7 @@
   flex-direction: column;
   height: 100%;
 
-  background-color: #ffffff;
+  background-color: $white-color;
 
   &__image {
     max-width: 100%;
@@ -39,6 +41,7 @@
     letter-spacing: 1.37px;
     text-transform: uppercase;
   }
+
   &__subtitle {
     padding-bottom: 10px;
 
@@ -48,6 +51,7 @@
 
     color: #808080;
   }
+
   &__price {
     padding-bottom: 20px;
 
@@ -59,10 +63,12 @@
       margin-right: 10px;
       text-decoration: line-through;
     }
+
     &--discounted {
       color: #F54B5E;
     }
   }
+
   &__wishlist-button {
     width: 35px;
     height: 35px;
@@ -74,10 +80,12 @@
     position: absolute;
     top: 10px;
     right: 10px;
+
     .wished {
-      fill: #444A59;
+      fill: $main-color;
     }
   }
+
   &__add-to-cart {
     width: 100%;
     margin-top: auto;
@@ -91,6 +99,7 @@
     max-width: 50%;
   }
 }
+
 @media screen and (max-width: 650px) {
   .product-list__item {
     flex: 1 0 100%;

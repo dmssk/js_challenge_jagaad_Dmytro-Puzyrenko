@@ -1,6 +1,8 @@
+@import "variables";
+
 .bag__modal {
   position: absolute;
-  background: #fff;
+  background: $white-color;
   top: 100%;
   right: 0;
   z-index: 2;
@@ -18,10 +20,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 15px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $gray-color;
 
     &:hover {
-      background: #eee;
+      background: $light-gray-color;
     }
 
     button {
@@ -46,14 +48,8 @@
 
   &-total {
     padding: 30px 15px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $gray-color;
     display: flex;
     justify-content: space-between;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .bag__modal {
-
   }
 }

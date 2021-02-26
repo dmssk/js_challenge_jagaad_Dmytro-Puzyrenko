@@ -61,20 +61,13 @@ export default {
       required: true
     }
   },
-  data () {
-    return {
-
-    }
-  },
   computed: {
     ...mapGetters(['getBag', 'getWishlist']),
     isProductInBag () {
-      const product = this.getBag.find(p => p.uuid === this.id)
-      return !!product
+      return !!this.getBag.find(p => p.uuid === this.id)
     },
     isProductInWishlist () {
-      const product = this.getWishlist.find(p => p.uuid === this.id)
-      return !!product
+      return !!this.getWishlist.find(p => p.uuid === this.id)
     },
     imageSrc () {
       return this.image + '?q=60&fit=crop&h=220px'
