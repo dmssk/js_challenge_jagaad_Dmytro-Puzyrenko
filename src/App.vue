@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main__wrap">
     <app-header/>
     <app-products-list/>
     <app-footer/>
