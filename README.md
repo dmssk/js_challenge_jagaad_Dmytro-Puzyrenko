@@ -1,6 +1,12 @@
 # js_challenge_jagaad_Dmytro-Puzyrenko
 ### The code built by the guide: https://wiki.jagaad.it/en/recruiting/frontend-coding-challenge#Guidelines
 
+## Run Specs
+- macOS Big Sur  
+- nodejs v15.5.1
+- npm v7.3.0
+- vue/cli v4.5.10
+
 ## Installation
 ```sh
 npm install
