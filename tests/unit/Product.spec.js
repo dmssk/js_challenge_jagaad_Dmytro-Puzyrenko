@@ -7,21 +7,25 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 describe('AppProduct.vue', () => {
+  let state
   let mutations
   let getters
   let store
   let wrapper
 
   beforeEach(() => {
+    state = {
+      bag: []
+    }
     mutations = {
       ADD_PRODUCT_TO_BAG: jest.fn(),
       ADD_PRODUCT_TO_WISHLIST: jest.fn()
     }
     getters = {
-      getBag: () => [{uuid: '123'}],
       getWishlist: () => [{uuid: '123'}]
     }
     store = new Vuex.Store({
+      state,
       mutations,
       getters
     })

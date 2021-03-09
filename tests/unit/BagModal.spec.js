@@ -14,23 +14,27 @@ Object.keys(filters).forEach(key => {
 })
 
 describe('AppBagModal.vue', () => {
+  let state
   let mutations
   let getters
   let store
   let wrapper
 
   beforeEach(() => {
+    state = {
+      bag: [{
+        uuid: '123',
+        retail_price: {}
+      }]
+    }
     mutations = {
       DELETE_PRODUCT_FROM_CART: jest.fn()
     }
     getters = {
-      getBag: () => [{
-        uuid: '123',
-        retail_price: {}
-      }],
       getTotalPrice: () => '0'
     }
     store = new Vuex.Store({
+      state,
       mutations,
       getters
     })

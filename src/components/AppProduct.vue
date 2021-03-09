@@ -62,9 +62,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getBag', 'getWishlist']),
+    ...mapGetters(['getWishlist']),
     isProductInBag () {
-      return !!this.getBag.find(p => p.uuid === this.id)
+      return !!this.$store.state.bag.find(p => p.uuid === this.id)
     },
     isProductInWishlist () {
       return !!this.getWishlist.find(p => p.uuid === this.id)

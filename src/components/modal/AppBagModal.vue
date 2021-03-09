@@ -4,7 +4,7 @@
   >
     <ul class="bag__modal-list">
       <li
-        v-for="product in getBag"
+        v-for="product in bag"
         :key="product.uuid"
         class="bag__modal-item"
       >
@@ -17,7 +17,7 @@
         </button>
       </li>
       <li
-        v-if="!getBag.length"
+        v-if="!bag.length"
         class="bag__modal-item"
       >
         The bag is empty
@@ -36,9 +36,11 @@ export default {
   name: 'AppBagModal',
   computed: {
     ...mapGetters([
-      'getBag',
       'getTotalPrice'
-    ])
+    ]),
+    bag () {
+      return this.$store.state.bag
+    }
   },
   methods: {
     ...mapMutations(['DELETE_PRODUCT_FROM_CART'])

@@ -50,9 +50,6 @@ export default new Vuex.Store({
     getTotalPrice (state) {
       return state.totalPrice.toFixed(2)
     },
-    getBag (state) {
-      return state.bag
-    },
     getBagCount (state) {
       return state.bag.length
     },

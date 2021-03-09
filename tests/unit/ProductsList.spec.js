@@ -1,6 +1,7 @@
 /* eslint-disable */
-import {shallowMount} from '@vue/test-utils'
+import {shallowMount, createLocalVue} from '@vue/test-utils'
 import AppProductsList from '@/components/AppProductsList.vue'
+import Vuex from 'vuex'
 
 jest.mock('@/api')
 import {getProducts} from '@/api'
@@ -908,10 +909,22 @@ getProducts.mockImplementation(() => Promise.resolve(
   ]
 ))
 
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
 describe('AppProductsList.vue', () => {
-  let wrapper
+  let wrapper, mutations, store
+  mutations = {
+    SET_PRODUCTS: jest.fn()
+  }
+  store = new Vuex.Store({
+    mutations
+  })
   beforeEach(() => {
-    wrapper = shallowMount(AppProductsList)
+    wrapper = shallowMount(AppProductsList, {
+      store,
+      localVue
+    })
   })
 
   it('renders', () => {
@@ -919,8 +932,7 @@ describe('AppProductsList.vue', () => {
   })
 
   it('render list', () => {
-    console.log(wrapper)
-    expect(wrapper.find('.product-list').is('.product-list')).toBe(true)
+    expect(wrapper.find('.product-list')).toBeTruthy()
   })
 
 })
