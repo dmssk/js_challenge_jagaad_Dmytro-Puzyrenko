@@ -44,8 +44,6 @@ export default new Vuex.Store({
       state.wishlist = state.wishlist.filter(p => p.uuid !== productId)
     }
   },
-  actions: {
-  },
   getters: {
     getTotalPrice (state) {
       return state.totalPrice.toFixed(2)
@@ -59,7 +57,5 @@ export default new Vuex.Store({
     getWishlistCount (state) {
       return state.wishlist.length
     }
-  },
-  modules: {
   }
 })

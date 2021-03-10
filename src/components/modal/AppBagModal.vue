@@ -8,7 +8,7 @@
         :key="product.uuid"
         class="bag__modal-item"
       >
-        <img :src="product.cover_image_url" alt="">
+        <img :src="product.cover_image_url" alt="Product">
         <span>{{ product.title }} <br> <b>{{ product.retail_price.formatted_value }}</b></span>
         <button @click="DELETE_PRODUCT_FROM_CART(product.uuid)">
           <svg height="15px" viewBox="0 0 329 329" width="15px" xmlns="http://www.w3.org/2000/svg">

@@ -3,10 +3,10 @@ import {shallowMount, createLocalVue} from '@vue/test-utils'
 import AppProductsList from '@/components/AppProductsList.vue'
 import Vuex from 'vuex'
 
-jest.mock('@/api')
-import {getProducts} from '@/api'
+jest.mock('@/services/products')
+import product from '@/services/products'
 
-getProducts.mockImplementation(() => Promise.resolve(
+product.get.mockImplementation(() => Promise.resolve(
   [
     {
       "max_confirmation_time": "P0D",
