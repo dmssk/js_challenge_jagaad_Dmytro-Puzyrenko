@@ -29,7 +29,7 @@
 <script>
 import AppPagination from '@/components/AppPagination'
 import AppProduct from '@/components/AppProduct'
-import { getProducts } from '@/api'
+import products from '@/services/products'
 import { mapMutations } from 'vuex'
 
 export default {
@@ -51,6 +51,9 @@ export default {
       loading: false
     }
   },
+  created () {
+    this.getProductsHandler()
+  },
   methods: {
     ...mapMutations(['SET_PRODUCTS']),
     onPageChange (data) {
@@ -59,7 +62,12 @@ export default {
     async getProductsHandler (limit = 6, offset = 0, page = 1) {
       try {
         this.loading = true
-        this.products = await getProducts(limit, offset)
+        this.products = await products.get('https://api.musement.com/api/v3/venues/164/activities', {
+          params: {
+            limit,
+            offset
+          }
+        })
         this.SET_PRODUCTS({
           products: this.products,
           page
@@ -70,9 +78,6 @@ export default {
         this.loading = false
       }
     }
-  },
-  mounted () {
-    this.getProductsHandler()
   }
 }
 </script>
